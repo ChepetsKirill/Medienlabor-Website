@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Videoprojekte Medienlabor</title>
+
+	<link rel="stylesheet" href="styles_med.css">
+</head>
+
+<body>
+
+<header>
+
+	<img class="logo" src="logo.png">
+
+	<h1>VIDEOPROJEKTE MEDIENLABOR</h1>
+
+</header>
+
+
+<main>
+
+	<!-- LANGE VIDEOS -->
+	<section class="long">
+
+		<h2>LÄNGERE BEITRÄGE</h2>
+
+
+		<!-- VIDEO BOX -->
+		<div class="video-box">
+
+			<video controls>
+				<source src="vids/med-intro.m4v" type="video/mp4">
+			</video>
+
+			<h3>Medienlabor Intro</h3>
+
+			<button class="btn">Beschreibung</button>
+
+			<button class="close">X</button>
+
+			<div class="description">
+				<p>
+					Willkommen zum Medienlabor!
+				</p>
+			</div>
+
+		</div>
+
+
+		<!-- VIDEO BOX -->
+		<div class="video-box">
+
+			<video controls>
+				<source src="vids/b-school.m4v" type="video/mp4">
+			</video>
+
+			<h3>BikeSchool</h3>
+
+			<button class="btn">Beschreibung</button>
+
+			<button class="close">X</button>
+
+			<div class="description">
+				<p>
+                    Bikeschool AG.
+				</p>
+			</div>
+
+		</div>
+
+
+		<!-- VIDEO BOX -->
+		<div class="video-box">
+
+			<video controls>
+				<source src="vids/weihnachten.m4v" type="video/mp4">
+			</video>
+
+			<h3>Weihnachten am WEG</h3>
+
+			<button class="btn">Beschreibung</button>
+
+			<button class="close">X</button>
+
+			<div class="description">
+				<p>
+					Weihnachten am Wolfgang-Ernst-Gymnasium.
+				</p>
+			</div>
+
+		</div>
+
+	</section>
+
+
+
+	<!-- SHORTS -->
+	<section class="short">
+
+		<h2>CUTS</h2>
+
+
+		<div class="video-box">
+
+			<video controls>
+				<source src="vids/robopaints.mp4" type="video/mp4">
+			</video>
+
+			<h3>Robopainters</h3>
+
+			<button class="btn">Beschreibung</button>
+
+			<button class="close">X</button>
+
+			<div class="description">
+				<p>
+                    Robopainters, Tag der offenen Türen.       
+                </p>
+			</div>
+
+		</div>
+
+
+
+		<div class="video-box">
+
+			<video controls>
+				<source src="shorts/cut1.m4v" type="video/mp4">
+			</video>
+
+			<h3>Bikecheck</h3>
+
+			<button class="btn">Beschreibung</button>
+
+			<button class="close">X</button>
+
+			<div class="description">
+				<p>
+					BikeCheck.
+				</p>
+			</div>
+
+		</div>
+		
+		<div class="video-box">
+
+			<video controls>
+				<source src="shorts/cut2.m4v" type="video/mp4">
+			</video>
+
+			<h3>BikeSchool Werkstatt</h3>
+
+			<button class="btn">Beschreibung</button>
+
+			<button class="close">X</button>
+
+			<div class="description">
+				<p>
+					BikeSchool AG Werkstatt.
+				</p>
+			</div>
+
+		</div>
+		
+		<div class="video-box">
+
+			<video controls>
+				<source src="shorts/cut3.m4v" type="video/mp4">
+			</video>
+
+			<h3>Aktion</h3>
+
+			<button class="btn">Beschreibung</button>
+
+			<button class="close">X</button>
+
+			<div class="description">
+				<p>
+					Aktion.
+				</p>
+			</div>
+
+		</div>
+
+	</section>
+
+</main>
+
+<div id="overlay"></div>
+
+<div id="popup">
+  <p>🎉 Glückwunsch! Du hast eine versteckte Überraschung gefunden!</p>
+</div>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+
+	const boxes = document.querySelectorAll('.video-box');
+
+	boxes.forEach(box => {
+
+		const btn = box.querySelector('.btn');
+		const close = box.querySelector('.close');
+		const des = box.querySelector('.description');
+
+		btn.onclick = () => {
+
+			des.style.display = 'block';
+			close.style.display = 'block';
+			btn.style.display = 'none';
+
+		};
+
+		close.onclick = () => {
+
+			des.style.display = 'none';
+			close.style.display = 'none';
+			btn.style.display = 'block';
+
+		};
+
+	});
+	
+	
+	const overlay = document.getElementById('overlay');
+      const popup = document.getElementById('popup');
+
+    function openPopup() {
+        overlay.style.display = 'block';
+        popup.style.display = 'block';
+      }
+
+    function closePopup() {
+        overlay.style.display = 'none';
+        popup.style.display = 'none';
+      }
+
+  // Taste "M"
+    document.addEventListener('keydown', (e) => {
+        if (e.key.toLowerCase() === 'm') {
+        openPopup();
+        }
+
+    if (e.key === 'Escape') {
+        closePopup();
+    }
+  });
+
+  // Klick auf Hintergrund schließt
+  overlay.addEventListener('click', closePopup);
+
+});
+
+</script>
+
+
+
+</body>
+</html>
